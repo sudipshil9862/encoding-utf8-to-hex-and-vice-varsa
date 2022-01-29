@@ -1,6 +1,5 @@
-procedure:--
-(language used: python)
-
+#procedure:--
+--------------
 #converting utf8 to hex
 1. user input string
 2. made a function to convert from space included string to hex code
