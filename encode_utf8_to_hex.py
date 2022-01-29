@@ -1,10 +1,8 @@
-from json.tool import main
 
-
-def ASCIItoHEX(ascii):
+def strToHex(strValue):
     hexa = ""
-    for i  in range(len(ascii)):
-        ch = ascii[i]
+    for i  in range(len(strValue)):
+        ch = strValue[i]
         int1 = ord((ch))
         inthex = hex(int1).lstrip("0x").rstrip("L")
         #if there is any space(whose ASCII = 20) than it will covert it into "%20" (as mentioned in question)
@@ -14,13 +12,13 @@ def ASCIItoHEX(ascii):
             hexa += inthex
     return hexa
 
-def hexToASCII(hexx):
+def hexToStr(hexStr):
     asci = ""
-    for i in range(0, len(hexx), 2):
-        part = hexx[i : i + 2]
+    for i in range(0, len(hexStr), 2):
+        part = hexStr[i : i + 2]
         ch = chr(int(part, 16))
         asci += ch
-    print(asci)
+    return asci
 
 
 
@@ -28,14 +26,11 @@ def hexToASCII(hexx):
 s = input("enter string to convert into hex:-")
 
 #string to hex (via ASCII)
-a = ASCIItoHEX(s)
-print(a)
+a = strToHex(s)
+print("string to hex value:- ",a)
 
 #hex to string
 
 #removing all "%" as we have included for space instead of 20
-for i in a:
-    if(i == "%"):
-        i = ""
-print(hexToASCII(a))
-
+b = a.replace("%20","20")
+print("hex value to string:- ",hexToStr(b))
